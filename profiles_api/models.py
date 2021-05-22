@@ -22,7 +22,7 @@ class UserProfileManager(BaseUserManager):
 
         return user
 
-    def create_super_user(self, email, name, password):
+    def create_superuser(self, email, name, password):
         """Create and save a new superuser with given details"""
         user = self.create_user(email, name, password)
 
@@ -30,7 +30,7 @@ class UserProfileManager(BaseUserManager):
         user.is_staff = True
         user.save(using=self._db)
 
-class UserProfile(AbstractBaseUser, PermissionsMixin):
+class UserProfile(AbstractBaseUser, PermissionsMixin):  #Singular name since Django will automatically add 's' to the end
     """Database model for users in the system"""
     email = models.EmailField(max_length=255, unique=True)
     name = models.CharField(max_length=255)
