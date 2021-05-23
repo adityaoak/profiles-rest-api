@@ -23,7 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'tw-w_clll_(asy$daj2&v-z1aq@w5b^hsceu2+_5+epzl#m=*6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True  #Okay to keep true when you're running on a your own machine but when running on AWS or any other server in production, DO NOT USE TRUE. Use below Debug value
+DEBUG = bool(int(os.environ.get('DEBUG',1)))
+
 
 ALLOWED_HOSTS = []
 
@@ -123,3 +125,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 AUTH_USER_MODEL = 'profiles_api.UserProfile'  #added after creating UserProfile in models.py
+
+STATIC_ROOT = 'static/'  #Django will store all static files when we run our collectstatic command
