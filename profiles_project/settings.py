@@ -27,7 +27,9 @@ SECRET_KEY = 'tw-w_clll_(asy$daj2&v-z1aq@w5b^hsceu2+_5+epzl#m=*6'
 DEBUG = bool(int(os.environ.get('DEBUG',1)))
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'ec2-3-137-198-19.us-east-2.compute.amazonaws.com',  #For AWS
+    '127.0.0.1']  #For Vagrant on local
 
 
 # Application definition
